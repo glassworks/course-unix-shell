@@ -76,6 +76,12 @@
   * [Fonctions](src/210-scripts/fonctions.md)
   * [Exercice : un script CGI pour Apache](src/210-scripts/exercice.md)
 
+## Git
+* [🤖 GIT](src/410-git/README.md)
+  * [Commandes](src/410-git/010-notions-git.md)
+  * [Branches](src/410-git/020-branches-git.md)
+  * [Déploiement automatique](src/410-git/050-cd.md)
+
 ## Docker
 
 * [🐳 Docker](src/310-docker/README.md)

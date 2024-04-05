@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  vscode_unix_shell:
+    # build: 
+    #  context: ./
+    #  dockerfile: ./Dockerfile
+    image: rg.fr-par.scw.cloud/unix-shell-vscode/unix-shell-vscode:latest
+    command: /bin/bash -c "while sleep 1000; do :; done"
+    working_dir: /home/hetic
+    networks:
+      - app-network
+    volumes:
+      - ../:/home/hetic:cached
+
+networks:
+  app-network:
+    driver: bridge
+

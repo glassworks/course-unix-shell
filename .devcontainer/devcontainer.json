@@ -1,0 +1,17 @@
+{
+  "name": "Unix Shell Playground",
+  // Pointer vers notre docker-compose.dev.yml
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  // Le service dans docker-compose.dev.yml auquel on va attacher VSCode
+  "service": "vscode_unix_shell",
+  // Le dossier de travail précisé dans Dockerfile.dev
+  "workspaceFolder": "/home/hetic",
+  // Set *default* container specific settings.json values on container create.
+  "settings": {},
+  // Quelques extensions VSCode à inclure par défaut pour notre projet
+  "extensions": [
+  ],
+  "forwardPorts": [ ]
+}

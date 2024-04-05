@@ -1,0 +1,13 @@
+/node_modules/
+/build/
+/.nyc_output/
+/coverage/
+/.vscode-server/
+/.local/
+/.bash_history
+/.gitconfig
+/.ssh/
+/annual-enterprise-survey-2020-financial-year-provisional-csv.csv
+/err.txt
+/linecount.txt
+/output.txt

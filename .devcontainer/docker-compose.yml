@@ -5,15 +5,15 @@ services:
     # build: 
     #  context: ./
     #  dockerfile: ./Dockerfile
-    image: rg.fr-par.scw.cloud/unix-shell-vscode/unix-shell-vscode:latest
+    image: rg.fr-par.scw.cloud/unix-shell-vscode/unix-shell-vscode:2.0.0
     command: /bin/bash -c "while sleep 1000; do :; done"
     working_dir: /home/hetic
     networks:
-      - app-network
+      - app-network-unix-shell
     volumes:
       - ../:/home/hetic:cached
 
 networks:
-  app-network:
+  app-network-unix-shell:
     driver: bridge
 

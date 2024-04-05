@@ -37,15 +37,25 @@ D'abord, installez l'outil `ssh` :
 sudo apt install ssh
 ```
 
-Dans vos invites de commandes, vous allez tapez le suivant :
+Je vous ai envoyé une paire de clés par e-mail. Vérifiez votre adresse e-mail d'étudiant (peut-être dans les spams). Il y a deux clés : 
+- `sshkey.pri` : votre clé privée
+- `sshkey.pub` : votre clé publique
+
+Sauvegardez ces deux clés dans le dossier `keys` de votre projet VSCode.
+
+Ensuite, modifiez les droits sur la clé privée :
 
 ```bash
-ssh -i ~/keys/id_rsa identifiant@unixshell.hetic.glassworks.tech
+chmod 600 ~/keys/sshkey.pri
 ```
 
-La première option de la commande (`-i ~/keys/id_rsa`) indique qu'il faut chercher et utiliser la clé cryptographique qui existe dans le fichier qui s'appelle `id_rsa` et qui se trouve dans le dossier `keys` de votre répertoire maison. On pourrait bien sur chercher la clé avec un chemin absolu, par exemple `-i /home/hetic/id_rsa`.
+Pour établir une connexion à mon serveur alors : 
 
-> Je vous ai déjà crée une paire de clés pour cette connexion, et configuré vos comptes sur mon serveur avec ces clés. Le dossier `~/keys` existe déjà dans [le projet VSCode que vous ai téléchargé et configuré](../010-introduction/installation-party.md).
+```bash
+ssh -i ~/keys/sshkey.pri identifiant@unixshell.hetic.glassworks.tech
+```
+
+La première option de la commande (`-i ~/keys/sshkey.pri`) indique qu'il faut chercher et utiliser la clé cryptographique qui existe dans le fichier qui s'appelle `sshkey.pri` et qui se trouve dans le dossier `keys` de votre répertoire maison. On pourrait bien sur chercher la clé avec un chemin absolu, par exemple `-i /home/hetic/keys/sshkey.pri`.
 
 La deuxième option se compose d'un identifiant, suivi par l'arobase, suivi par l'URL (ou adresse IP) de la machine distante. L'identifiant est [le nom d'utilisateur dont on a parlé précédemment](../050-droits/qui.md).
 
@@ -59,7 +69,7 @@ La deuxième option se compose d'un identifiant, suivi par l'arobase, suivi par 
 >
 > Je connecte à la machine en utilisant la commande :
 >
-> `ssh -i ~/keys/id_rsa kevin.nguni.fr@unixshell.hetic.glassworks.tech`
+> `ssh -i ~/keys/sshkey.pri kevin.nguni.fr@unixshell.hetic.glassworks.tech`
 
 Une fois connecté :
 
@@ -69,29 +79,12 @@ Une fois connecté :
 
 Pour arrêter votre connexion, vous tapez la commande `exit`.
 
-<details>
-
-<summary>J'ai une erreur qui concerne les droits sur ma clé privée</summary>
-
-La commande `ssh` assure des bonnes pratiques pour garder de la sécurité dans nos connexions. Un règle imposé est que la clé cryptographique doit être bien protégée. Notamment, elle ne devrait pas être lisible ni modifiable par n'importe qui (seulement son propriétaire).
-
-Sur les systèmes UNIX, on pourrait donc modifier les droits sur la clé avec :
-
-<pre class="language-bash"><code class="lang-bash"><strong># Assurer que la clé appartient à votre utilisateur "hetic"
-</strong><strong>sudo chown hetic:hetic ~/keys/id_rsa
-</strong><strong># Mettre les bonnes permissions sur la clé privée
-</strong><strong>chmod 600 ~/keys/id_rsa
-</strong></code></pre>
-
-Si vous êtes sur Windows (sans invite de commandes), et vous utilise la version de `ssh` de PowerShell (vous n'êtes donc pas dans un conteneur ou machine virtuelle basé sur Unix) vous n'avez pas la commande `chmod`. Dans ce cas, il faudrait ouvrir le dialog de propriétés du fichier `id_rsa`, dans l'onglet sécurité, il faudrait retirer un maximum d'accès aux autre utilisateurs à ce fichier.
-
-</details>
 
 ## La configuration des clés
 
 Pour cette démonstration, j'ai crée une paire de clés au préalable :
 
-* Une clé privée, que je vous ai partagée (`id_rsa`)
+* Une clé privée, que je vous ai partagée (`sshkey.pri`)
 * Une clé publique, que j'ai collé dans le fichier `~/.ssh/authorized_keys`
 
 Exercice : Etant connecté à votre compte sur mon serveur, allez chercher le fichier `~/.ssh/authorized_keys` et visionner les contenus afin de voir à quoi la clé publique ressemble.
@@ -106,15 +99,8 @@ Lorsqu'une connexion est établi par `ssh`, les caractères sont cryptés de mon
 >
 > Je peux désormais me connecter au serveur en tant que `UTILISATEUR` avec tous les droits et groupes accordés à cet utilisateur là. Si l'administrateur du serveur veut retirer mon accès, il n'a juste à enlever ma clé publique du fichier `/home/UTILISATEUR/.ssh/authorized_keys`.
 
-## Hacking 101
 
-Actuellement nous utilisons tous la même paire de clés. La même clé publique est collée dans le fichier `~/.ssh/authorized_keys` de tout vos comptes.
-
-Puisque vous possédez tous la même clé privée, vous pourriez donc _impersoner_ vos camarades. Si vous connaissez leur identifiant, vous pouvez vous connecter à leurs comptes avec la même paire de clés !
-
-Essayez !
-
-## Sécuriser vos comptes
+## Générez votre propre paire de clés 
 
 On peut sécuriser nos comptes en utilisant une paire de clés différente à ce que je vous ai passé !
 
@@ -196,7 +182,7 @@ Une fois connecté à mon serveur, vous pouvez effectuer un certain nombre de co
 Vous pouvez aussi télécharger des fichiers du web, par exemple :
 
 ```bash
-wget https://dev.glassworks.tech:18081/courses/unix-shell/unix-shell-supports/-/blob/main/README.md
+wget wget https://github.com/glassworks/course-unix-shell/blob/c4068bf25eeca8a060e9ed42514efc29eed39fe0/README.md
 ```
 
 En revanche, vous n'avez pas le droit de modifier les fichiers de configuration du système (par exemple, dans `/etc`), ni exécuter certaines commandes, y compris `apt install`.

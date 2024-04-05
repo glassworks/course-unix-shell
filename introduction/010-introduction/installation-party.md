@@ -73,7 +73,7 @@ Une fois installé, ouvrez l'onglet "Extensions", cherchez l'extension qui s'app
 
 Une configuration VS code a été crée et est disponible dans un dépôt GIT publique.
 
-[Télécharger la configuration VSCode](https://github.com/glassworks/course-unix-shell/archive/refs/heads/main.zip)
+[Télécharger la configuration VSCode](https://github.com/glassworks/course-unix-shell/-/archive/main/unix-shell-supports-main.zip)
 
 Décompressez l'archive à un endroit connu sur votre ordinateur.
 
@@ -114,7 +114,7 @@ La fenêtre VSCode se relance, et en bas à droite on vois "Starting Dev Contain
 
 Attendez la configuration automatique de votre container Linux Ubuntu !
 
-_\*\*\*\*_:warning: _\*\*\*\*_ :warning: _**Attention, une connexion Internet est obligatoire pour ce dernier étape. S'il y a une erreur pendant la configuration, fermez VSCode et recommencez.**_ :warning:_\*\*\*\*_:warning:_\*\*\*\*_
+:warning: :warning: **Attention, une connexion Internet est obligatoire pour ce dernier étape. S'il y a une erreur pendant la configuration, fermez VSCode et recommencez.** :warning: :warning:
 
 </details>
 

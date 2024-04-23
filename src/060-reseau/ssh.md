@@ -182,7 +182,7 @@ Une fois connecté à mon serveur, vous pouvez effectuer un certain nombre de co
 Vous pouvez aussi télécharger des fichiers du web, par exemple :
 
 ```bash
-wget wget https://github.com/glassworks/course-unix-shell/blob/c4068bf25eeca8a060e9ed42514efc29eed39fe0/README.md
+wget https://github.com/glassworks/course-unix-shell/blob/c4068bf25eeca8a060e9ed42514efc29eed39fe0/README.md
 ```
 
 En revanche, vous n'avez pas le droit de modifier les fichiers de configuration du système (par exemple, dans `/etc`), ni exécuter certaines commandes, y compris `apt install`.

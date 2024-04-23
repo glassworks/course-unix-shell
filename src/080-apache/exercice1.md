@@ -12,8 +12,8 @@ Par exemple, mon espace web (avec mon identifiant `kevin.nguni.fr`) est à :
 
 Utilisez votre accès à mon serveur à `unixshell.hetic.glassworks.tech` afin de réaliser les tâches suivantes :
 
-1. J'aimerai plus facilement accéder à mon espace web à partir de mon répertoire maison, notamment `~/www`. Créez un lien symbolique qui me permet d'ajouter ou modifier mon espace web plus facilement.
-2. Crée une page HTML avec le texte "Hello world" dans le dossier `~/www`. Vous devriez pouvoir naviguer à cette page dans un navigateur web au lien suivant :
+1. J'aimerais plus facilement accéder à mon espace web à partir de mon répertoire maison, notamment `~/www`. Créez un lien symbolique qui me permet d'ajouter ou modifier mon espace web plus facilement.
+2. Créez une page HTML avec le texte "Hello world" dans le dossier `~/www`. Vous devriez pouvoir naviguer à cette page dans un navigateur web au lien suivant :
 
 [https://unixshell.hetic.glassworks.tech/\[UTILISATEUR\]/index.html](https://unixshell.hetic.glassworks.tech/\[UTILISATEUR]/index.html)
 
